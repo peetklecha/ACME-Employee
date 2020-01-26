@@ -18,7 +18,7 @@ const employees = [
   }
   
   
-  
+  //[pk] ok, but for-in would be better... filter would be even better!
   spacer('findEmployeeByName Moe')
   // given a name and array of employees, return employee
   const findEmployeeByName=(name,employees)=>{
@@ -33,7 +33,7 @@ const employees = [
   spacer('')
   
   
-  
+  //[pk] same
   spacer('findManagerFor Shep')
   //given an employee and a list of employees, return the employee who is the manager
   const findManagerFor=(employee,employees)=>{
@@ -50,7 +50,7 @@ const employees = [
   spacer('')
   
   
-  
+  //[pk] good! here "find" is the ideal array method to use
   spacer('findCoworkersFor Larry')
   //given an employee and a list of employees, return the employees who report to the same manager
   const findCoworkersFor=(employee,employees)=>{
@@ -76,12 +76,17 @@ const employees = [
   spacer('findManagementChain for moe')
   //given an employee and a list of employees, return a the management chain for that employee. 
   //The management chain starts from the employee with no manager with the passed in employees manager 
-  
+
+  //[pk] you gave this the wrong name so when you run it in repl it crashes. how did you test whether it works?
   const findManagementChain=(employee,employees)=>{
     let output = []
     let baseEmplyoee = findEmployeeByName(employee, employees);
+     //[pk] you're given the employee. why do you need to find them? (also find by name takes a string not an object, so this would crash.)
+
     
     output = employees.filter(employees=>employees.id>=baseEmplyoee.managerId)
+    //[pk] wait what? ">="?? id number is arbitrary. what if you ran this on lucy?  
+      
     //sort the output list of qualifying Managers
     
     return output
